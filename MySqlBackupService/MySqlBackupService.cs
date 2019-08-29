@@ -73,10 +73,10 @@ namespace MySqlBackupService {
             if (DateTime.Now >= this.backupTime) {
                 this.backupTime = this.backupTime.AddDays(1);
             }
-            this.BackupDatabase();
             this.pollTimer.Start();
             serviceStatus.dwCurrentState = ServiceState.SERVICE_RUNNING;
             SetServiceStatus(this.ServiceHandle, ref serviceStatus);
+
         }
 
         protected override void OnStop() {
